@@ -1,6 +1,6 @@
-############################
-A) TE Annotation using EDTA 
-############################
+#################################
+Week 1 TE Annotation using EDTA 
+#################################
 
 1. Fetch data
 
@@ -25,9 +25,9 @@ A) TE Annotation using EDTA
         sbatch scripts/04_run_R_length_LTRs_identity.sh
             it controlls running R script: scripts/04_full_length_LTRs_identity_copy.R in the container
 
-#####################################################
-B) Visualizing and comparing TE annotations from EDTA
-#####################################################
+###########################################################
+Week 2 Visualizing and comparing TE annotations from EDTA
+###########################################################
 
 5. run samtools faidx
         sbatch scripts/05_run_samtools_faidx.sh
@@ -59,8 +59,8 @@ B) Visualizing and comparing TE annotations from EDTA
                     Gene Prediction Settings: Augustus gene predictor configured for Arabidopsis (arabidopsis), with est2genome=1 and protein2genome=1 enabled.
                     Control Files: MAKER configuration control files (maker_opts.ctl, maker_bopts.ctl, maker_exe.ctl, maker_evm.ctl).
 
-        Does:       MAKER is a genome annotation pipeline that masks repeats, aligns transcript and protein evidence, performs gene prediction, 
-                    and synthesizes everything to generate consensus structural gene models.
+        Does:       MAKER is a genome annotation pipeline that masks repeats, aligns transcript and protein     
+                    evidence, performs gene prediction, and synthesizes everything to generate consensus structural gene models.
 
 
         Outputs:    MAKER Annotation Results:
@@ -70,30 +70,110 @@ B) Visualizing and comparing TE annotations from EDTA
 
         copy the four templates from:
             cp /data/courses/genome_annotation_resources/2026/tools/MAKER/control_files/ /data/users/apiatkowska/genome_annotation_course/
+
         edit maker_opts.ctl:
             genome=/data/users/apiatkowska/genome_annotation_course/data/assembly.fasta
             est=/data/users/apiatkowska/genome_annotation_course/data/trinity_RNAseq_Sha.Trinity.fasta
             rmlib=/data/users/apiatkowska/genome_annotation_course/output/EDTA/assembly.fasta.mod.EDTA.TElib.fa
+
         in directory output 
             mkdir MAKER
+            
         Submit from the project root: 
             sbatch scripts/11_run_maker.sh
 
 
+
+#####################################################
+Week 3 Filtering and Refining Gene Annotations
+#####################################################
+
+12. Prepare maker output files for downstream analysis; 
         
+        12. merge maker gff files:
+                sbatch scripts/12_run_maker.sh
 
+        13. copy maker gff files to a new directory
+                sbatch scripts/13_copy_maker_gff_files.sh
 
+        14. set maker variables and rename maker files
+                sbatch scripts/14_map_maker_ID.sh
 
+15. Run InterProScan on the Protein File
 
+        Input: Maker (renamed) protein fasta
 
+        Does:   InterProScan searches protein sequences against biological databases to identify conserved 
+                functional domains, motifs, and Gene Ontology terms. We run this step to perform functional annotation, giving biological meaning to our structural gene predictions.
 
+        Output: output.iprscan, containing the detected domain matches, InterPro identifiers, 
+                and associated Gene Ontology (GO) terms in tab-separated format.
 
+        Run:    sbatch scripts/15_run_InterProScan.sh
+                set protein="assembly.all.maker.proteins.fasta" inside sh file
 
+16. Update GFF InterProScan results
 
+        Input:  Maker renamed gff file: structural gene annotations.
+                InterProScan Results: protein fasta output.iprscan for proteins (the functional domain and GO term data generated in the previous step).
 
+        Does:   merges the functional annotations (protein domains, motifs, and Gene Ontology terms) from       
+                InterProScan directly into the GFF3 structural gene annotations.
 
-WORKDIR="/data/users/$USER/genome_annotation_course"
-mkdir -p "$WORKDIR"
-cd "$WORKDIR"
-mkdir -p data/{assemblies,transcripts,proteins} scripts logs \
-results/{TE_annotation,gene_annotation,comparisons} plots
+        Outputs:Updated GFF File: a comprehensive GFF file containing both the gene structure locations and 
+                their new functional descriptions.
+
+        Run:    sbatch scripts/16_update_GFF_InterProScan.sh
+                        set gff="assembly.all.maker.noseq.gff" inside sh file
+
+17. Examine AED (Annotation Edit Distance) Values  
+
+        Input:  Renamed Maker GFF File: structural gene annotations containing AED score tags
+
+        Does:   Calculates the AED distribution for your gene models using MAKER's built-in tool, generating 
+                data for a Cumulative Distribution Function (CDF) plot to evaluate the quality and accuracy of the gene annotations.
+
+        Output: AED Text File: (*.AED.txt) a tabular file containing AED score statistics and cumulative 
+                frequencies, used to plot how well your models match evidence data.
+
+        Run:    sbatch scripts/17_examine_AED.sh
+                        set gff="assembly.all.maker.noseq.gff" inside the sh file
+
+18. Filter the GFF File for Quality
+        sbatch scripts/18_filter_GFF_quality.sh
+
+        set gff="assembly.all.maker.noseq.gff" inside the sh file
+
+19. Filter the GFF File for Gene Features
+        sbatch scripts/19_filter_GFF_gene_features.sh
+
+        set gff=assembly.all.maker.noseq.gff_iprscan_quality_filtered.gff inside the sh file
+
+20. Extract the remaining mRNA Sequences after filtering
+        sbatch scripts/20_extract_mRNA_after_filtering.sh
+
+21. Extract longest protein and transcript per Gene before running BUSCO
+
+        input: fasta files for proteins and transcripts from step 20:
+
+        sbatch scripts/21_extract_longest_proteins_transcript.sh
+
+22. Quality Assessment of Gene Annotations - BUSCO
+
+        Inputs: takes MAKER filtered fasta files with longest protein and transcript sequences from step 20:
+                protein=assembly.all.maker.proteins.fasta.renamed.fasta.filtered.fasta
+                transcript=assembly.all.maker.transcripts.fasta.renamed.fasta.filtered.fasta 
+                
+        Does:   Selects longest isoforms for proteins and transcripts, reason:
+                MAKER (and alternative splicing/gene prediction) often generates multiple isoforms for a single 
+                gene (e.g., -RA, -RB, -RC), which share most of the same exons and functional domains.
+                Extracting the longest isoform per gene provides a complete, representative model for each locus, allowing BUSCO to evaluate single-copy orthologs accurately without alternative transcripts artificially inflating duplicate scores.
+
+        Output: fasta files with the longest most representative isoforms of proteins and transcripts ready for 
+                BUSCO.
+     
+        sbatch scripts/21_run_BUSCO_on_MAKER.sh
+
+#####################################################
+D) 
+#####################################################
