@@ -140,23 +140,21 @@ Week 3 Filtering and Refining Gene Annotations
                         set gff="assembly.all.maker.noseq.gff" inside the sh file
 
 18. Filter the GFF File for Quality
-        sbatch scripts/18_filter_GFF_quality.sh
-
-        set gff="assembly.all.maker.noseq.gff" inside the sh file
+        Run:    sbatch scripts/18_filter_GFF_quality.sh
+                        set gff="assembly.all.maker.noseq.gff" inside the sh file
 
 19. Filter the GFF File for Gene Features
-        sbatch scripts/19_filter_GFF_gene_features.sh
-
-        set gff=assembly.all.maker.noseq.gff_iprscan_quality_filtered.gff inside the sh file
+        RUn:    sbatch scripts/19_filter_GFF_gene_features.sh
+                        set gff=assembly.all.maker.noseq.gff_iprscan_quality_filtered.gff inside the sh file
 
 20. Extract the remaining mRNA Sequences after filtering
-        sbatch scripts/20_extract_mRNA_after_filtering.sh
+        Run:    sbatch scripts/20_extract_mRNA_after_filtering.sh
 
 21. Extract longest protein and transcript per Gene before running BUSCO
 
         input: fasta files for proteins and transcripts from step 20:
 
-        sbatch scripts/21_extract_longest_proteins_transcript.sh
+        Run:    sbatch scripts/21_extract_longest_proteins_transcript.sh
 
 22. Quality Assessment of Gene Annotations - BUSCO
 
@@ -172,8 +170,100 @@ Week 3 Filtering and Refining Gene Annotations
         Output: fasta files with the longest most representative isoforms of proteins and transcripts ready for 
                 BUSCO.
      
-        sbatch scripts/21_run_BUSCO_on_MAKER.sh
+        Run:    sbatch scripts/21_run_BUSCO_on_MAKER.sh
+
+23. AGAT: Annotation Statistics
+        Run: sbatch scripts/23_run_AGAT.sh
 
 #####################################################
-D) 
+Week 4 Orthology and genome comparisons
 #####################################################
+
+24. Run Blastp
+
+        Inputs: filtered proteins
+                TAIR10 reference genome
+                Uniprot
+                Use the files prepared in Weeks 3. 
+
+        Does:   Compares filtered proteins with reviewed plant UniProt proteins and TAIR10  representative proteins. 
+
+        Outputs: comparisons contains: blastp_uniprot.tsv, blastp_TAIR10.tsv and their besthits.tsv tables.
+
+        Run:    sbatch scripts/24_run_blastp.sh
+
+25. Add the UniProt functions to copies of your filtered protein and gene annotations
+
+
+26. Prepare data for Genespace:
+
+        Inputs: copies inputs to the designated directories:
+                1. Your filtered MAKER annotation: filtered.genes.renamed.gff3
+                2. Maker filtered longest proteins: assembly.all.maker.proteins.fasta.renamed.fasta.renamed.longest.fasta 
+                3. Arabidopsis reference genome .bed and .fa files. 
+                3. Three other accessions .bed and .fa files: Etna_2, Altai_5, Are_6.
+
+        Does:   For PA_1 accession it creates bed file from gff. and fasta from the longest fasta.
+
+        Outputs: your organised directory with input files and PA_1 files
+
+        Run:    sbatch scripts/26_prepare_data_Genespace.sh
+
+27. Check ID:
+
+        Inputs: PA_1.bed
+                PA_1.fa
+        Does:   checks for :
+                Total Records in BED:       29076 (Unique: 29076)
+                Total Records in FASTA:     29077 (Unique: 29077)
+                Duplicates in BED:          0
+                Duplicates in FASTA:        0
+                Total Differences (BED/FASTA): 1
+                Missing IDs (in FASTA, not BED): 1
+                Extra IDs (in BED, not FASTA):   0
+
+                DETAILED BREAKDOWN:
+                        1. Duplicate IDs in BED: None [PASS]
+                        2. Duplicate IDs in FASTA: None [PASS]
+                        3. Missing IDs (Present in FASTA, Missing in BED):
+                                 Total: 1
+                                         - PA0027448
+
+                        4. Extra IDs (Present in BED, Missing in FASTA):
+                                 None [PASS]
+
+        Output: /data/users/apiatkowska/genome_annotation_course/output/genespace/GENESPACE/validation_report.txt
+
+        Run:    sbatch scripts/27_check_IDs.sh
+
+        Actions:        remove orphant PA0027448 from PA_1.fa and create new output/genespace/GENESPACE/peptide/PA_1_fixed.fa :
+                        In terminal run:
+                        cd /data/users/apiatkowska/genome_annotation_course/output/genespace/GENESPACE/peptide/
+                        awk '/^>/ {p = ($0 !~ /PA0027448/)} p' PA_1.fa > PA_1_fixed.fa
+                        re-run script 27 with appropriate paths
+                        delete old PA_1.fa file with orphant gene
+
+28. Run Genespace:
+
+        Input:  BED Files 
+                Peptide FASTA Files for: 
+                accessions: PA_1, Altai_5, Are_6, Etna_2, and 
+                reference genome TAIR10: need representative genome ancestor which didnt replicate to represent syntheny
+
+        Does:   Executes the GENESPACE workflow via an R script using 20 CPU cores.   
+                Runs OrthoFinder (using DIAMOND) to find orthologous gene families across all genomes.   
+                Performs synteny and collinearity analysis using MCScanX to map blocks across genomes relative to the TAIR10 reference.   
+                Extracts pangenome queries and exports the resulting matrix.   
+
+        Output: Set of comparative genomics outputs.
+                Includes OrthoFinder sequence analysis results.
+                Stores identified collinear blocks and synteny plots across your analyzed genomes.
+                Pangenome RDS Object
+
+        Run:    sbatch scripts/28_run_Genespace.sh
+                        takes R file scripts/28_Genespace.R
+
+29. Process Pangenome:
+
+
+Copy the XX-process_pangenome.R in the $COURSEDIR/scripts/.

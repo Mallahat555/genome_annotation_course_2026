@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=8G
-#SBATCH --time=03:00:00
+#SBATCH --time=02:00:00
 #SBATCH --mail-user=agnieszka.piatkowska@students.unibe.ch
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --output=logs/%x_%j.out
