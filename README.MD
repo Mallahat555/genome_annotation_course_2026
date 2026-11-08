@@ -1,5 +1,5 @@
 #################################
-Week 1 TE Annotation using EDTA 
+Week 1: TE Annotation using EDTA 
 #################################
 
 1. Fetch data
@@ -26,7 +26,7 @@ Week 1 TE Annotation using EDTA
             it controlls running R script: scripts/04_full_length_LTRs_identity_copy.R in the container
 
 ###########################################################
-Week 2 Visualizing and comparing TE annotations from EDTA
+Week 2: Visualizing and comparing TE annotations from EDTA
 ###########################################################
 
 5. run samtools faidx
@@ -82,10 +82,8 @@ Week 2 Visualizing and comparing TE annotations from EDTA
         Submit from the project root: 
             sbatch scripts/11_run_maker.sh
 
-
-
 #####################################################
-Week 3 Filtering and Refining Gene Annotations
+Week 3: Filtering and Refining Gene Annotations
 #####################################################
 
 12. Prepare maker output files for downstream analysis; 
@@ -176,7 +174,7 @@ Week 3 Filtering and Refining Gene Annotations
         Run: sbatch scripts/23_run_AGAT.sh
 
 #####################################################
-Week 4 Orthology and genome comparisons
+Week 4: Orthology and genome comparisons
 #####################################################
 
 24. Run Blastp
