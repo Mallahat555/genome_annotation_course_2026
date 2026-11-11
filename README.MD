@@ -453,4 +453,13 @@ Week 4: Orthology and genome comparisons
 
         Run:    sbatch scripts/31_run_riparian_plots_oriented.sh
                         takes R file scripts/31_riparian_plots_oriented.R
-        
+
+32. List core genes for PA_1
+        sbatch scripts/32_find_number_core_PA_1.sh
+                tail -n +2 PA_1_core_genes.txt | wc -l
+                22142
+
+33. List private genes for PA_1
+        sbatch scripts/33_find_number_private_PA_1.sh
+                tail -n +2 PA_1_private_genes.txt | wc -l
+                994
