@@ -301,9 +301,11 @@ Week 4: Orthology and genome comparisons
 
         Input:
 
-        Does:   Add the UniProt functions to copies of your filtered protein and gene annotations
+        Does:   Add the UniProt functions to copies of your filtered protein and gene annotations.
+                Tries to make a prediciton about a gene/protein function.
 
-        Output: 
+        Output: filtered.genes.Uniprot.gff3
+                maker_proteins.filtered.Uniprot.fasta
 
         Run:
         
@@ -326,6 +328,7 @@ Week 4: Orthology and genome comparisons
 
         Inputs: PA_1.bed
                 PA_1.fa
+
         Does:   checks for :
                 Total Records in BED:       29076 (Unique: 29076)
                 Total Records in FASTA:     29077 (Unique: 29077)
@@ -397,11 +400,16 @@ Week 4: Orthology and genome comparisons
                    accessions), accessory (present insome but not all), or accession-specific (present inone accession) 
 
         Output: 1. process_pangenome/plots/pangenome_presence_frequency.pdf: Bar chart showing how many
-                   pan-gene entries are shared across different numbers of accessions.
+                   pan-gene posiitonal orthologs are shared across different numbers of accessions.
                 2. process_pangenome/plots/copy_variable_core_comparison.pdf: Heatmap displaying 
                    copy-number variations across accessions for top copy-variable core genes.
                 3. process_pangenome/tables/focal_TAIR10_genes.tsv: Detailed gene position table 
                    comparing your accession PA_1 genome against TAIR10.
+
+                   positional orthologs, positional syntheny
+
+                   synthenic but tandemly duplicated. One gene could transposed in another position. 
+                   1 column non synthenic  counld be a problem second graph 
 
         Run:    sbatch scripts/29_run_process_pangenome.sh
                         takes R file /scripts/29_process_pangenome.RCopy copied from:
