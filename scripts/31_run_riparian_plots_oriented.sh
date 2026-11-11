@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=Riparian_plots_improve
+#SBATCH --job-name=Riparian_plots_oriented
 #SBATCH --partition=pshort_el8
 #SBATCH --nodes=1
 #SBATCH --ntasks=1

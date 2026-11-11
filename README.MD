@@ -118,7 +118,7 @@ Week 2: Visualizing and comparing TE annotations from EDTA
         Run: sbatch scripts/10_run_R_plot_div.sh
                 it controlls running R script: scripts/10_plot_div.R in the container
 
-11. run maker
+11. Maker
 
         Input:      Genome Assembly: FASTA file of the target genome
                     Transcriptomic Evidence: Trinity RNA-seq assembly
@@ -223,7 +223,7 @@ Week 3: Filtering and Refining Gene Annotations
         Run:    sbatch scripts/18_filter_GFF_quality.sh
                         set gff="assembly.all.maker.noseq.gff" inside the sh file
 
-19. Filter the GFF File for Gene Features
+19. Filter the GFF File for gene features
 
         Input:
 
@@ -244,13 +244,17 @@ Week 3: Filtering and Refining Gene Annotations
         
         Run:    sbatch scripts/20_extract_mRNA_after_filtering.sh
 
-21. Extract longest protein and transcript per Gene before running BUSCO
+21. Extract longest protein and transcript per gene before running BUSCO
 
-        input: fasta files for proteins and transcripts from step 20:
+        Input:  Fasta files for proteins and transcripts from step 20:
+
+        Does:   Extract the longest isoform of proteins and transcripts for the downstream analysis.
+
+        Output: longest.fasta file for protein and transcript
 
         Run:    sbatch scripts/21_extract_longest_proteins_transcript.sh
 
-22. Quality Assessment of Gene Annotations - BUSCO
+22. BUSCO - Quality assessment of gene annotations
 
         Inputs: takes MAKER filtered fasta files with longest protein and transcript sequences from step 20:
                 protein=assembly.all.maker.proteins.fasta.renamed.fasta.filtered.fasta
@@ -268,11 +272,11 @@ Week 3: Filtering and Refining Gene Annotations
 
 23. AGAT Annotation Statistics
 
-        Input:
+        Input:  filtered.genes.renamed.gff3 from step 19
 
         Does:
 
-        Output: 
+        Output: AGAT statistics in annotation.stat file
         
         Run: sbatch scripts/23_run_AGAT.sh
 
@@ -280,7 +284,7 @@ Week 3: Filtering and Refining Gene Annotations
 Week 4: Orthology and genome comparisons
 #####################################################
 
-24. Run Blastp
+24. Blastp
 
         Inputs: filtered proteins
                 TAIR10 reference genome
@@ -293,11 +297,11 @@ Week 4: Orthology and genome comparisons
 
         Run:    sbatch scripts/24_run_blastp.sh
 
-25. Add the UniProt functions to copies of your filtered protein and gene annotations
+25. UniProt 
 
         Input:
 
-        Does:
+        Does:   Add the UniProt functions to copies of your filtered protein and gene annotations
 
         Output: 
 
@@ -352,15 +356,14 @@ Week 4: Orthology and genome comparisons
                         re-run script 27 with appropriate paths
                         delete old PA_1.fa file with orphant gene
 
-28. Run Genespace:
+28. Genespace
 
-        Input:  BED Files 
+        Input:  BED Files and 
                 Peptide FASTA Files for: 
-                accessions: PA_1, Altai_5, Are_6, Etna_2, and 
+                accessions: PA_1, Altai_5, Are_6, Etna_2,
                 reference genome TAIR10: need representative genome ancestor which didnt replicate to represent syntheny
 
-        Does:   Executes the GENESPACE workflow via an R script using 20 CPU cores.   
-                Runs OrthoFinder (using DIAMOND) to find orthologous gene families across all genomes.   
+        Does:   Finds orthologous gene families across all genomes.   
                 Performs synteny and collinearity analysis using MCScanX to map blocks across genomes relative to the TAIR10 reference.   
                 Extracts pangenome queries and exports the resulting matrix.   
 
@@ -368,53 +371,78 @@ Week 4: Orthology and genome comparisons
                 Includes OrthoFinder sequence analysis results.
                 Stores identified collinear blocks and synteny plots across your analyzed genomes.
                 Pangenome RDS Object
+                For visualizing pairwise synteny, GENESPACE produces:
+                All hits above a score threshold (.rawHits.pdf).
+                Syntenic anchor hits by syntenic block ID (syntenicHits.pdf).
+                Dot plots for comparative syntheny between all the input accessions:
+                
+        Action: Inspect conserved gene order and possible structural rearrangements 
+                between species (deletions, duplications, insertions, translocations, inversions) 
+                and within species (retained old duplicated genomic regions; relicts of past whole genome duplication events).
 
         Run:    sbatch scripts/28_run_Genespace.sh
                         takes R file scripts/28_Genespace.R
 
-29. Process Pangenome:
-        Input:     Pangenome File: TAIR10_pangenes.txt.gz (located in your GENESPACE output directory), 
+29. Pangenome processing: 
+
+        Input:     Pangenome File: TAIR10_pangenes.txt.gz (located in GENESPACE output directory), 
                    containing gene mappings, coordinates, and reference-relative positions using TAIR10.
 
-        Does:   1. Read the pan-gene table. Load pangenes/TAIR10_pangenes.txt.gz, generated by GENESPACE, which links
-                   genes across accessions to pan-gene entries using TAIR10 as the reference and records their positions,
+        Does:   1. Read the pan-gene table. Load pangenes/TAIR10_pangenes.txt.gz, generated by 
+                   GENESPACE, which links genes across accessions to pan-gene entries using TAIR10 as the reference and records their positions,
                    orthogroups and assignment flags.
-                2. Count copies in each accession. Count genes for each pgID (the identifier of a positional pan-gene entry
-                   linking corresponding genes across accessions) separately in each accession.
-                3. Summarise presence and plot its frequency. Classify entries as core (present inall accessions), accessory
-                   (present insome but not all), or accession-specific (present inone accession) and save
-                   plots/pangenome_presence_frequency.pdf. 
+                2. Count copies in each accession. Count genes for each pgID (the identifier of a 
+                   positional pan-gene entry linking corresponding genes across accessions) separately in each accession.
+                3. Summarise presence and plot its frequency. Classify entries as core (present in all 
+                   accessions), accessory (present insome but not all), or accession-specific (present inone accession) 
 
-        Output: 1. process_pangenome/plots/pangenome_presence_frequency.pdf: Bar chart showing how many pan-gene entries are 
-                   shared across different numbers of accessions.
-                2. process_pangenome/plots/copy_variable_core_comparison.pdf: Heatmap displaying copy-number variations across 
-                   accessions for top copy-variable core genes.
-                3. process_pangenome/tables/focal_TAIR10_genes.tsv: Detailed gene position table comparing your focal genome 
-                   against TAIR10.
+        Output: 1. process_pangenome/plots/pangenome_presence_frequency.pdf: Bar chart showing how many
+                   pan-gene entries are shared across different numbers of accessions.
+                2. process_pangenome/plots/copy_variable_core_comparison.pdf: Heatmap displaying 
+                   copy-number variations across accessions for top copy-variable core genes.
+                3. process_pangenome/tables/focal_TAIR10_genes.tsv: Detailed gene position table 
+                   comparing your accession PA_1 genome against TAIR10.
 
         Run:    sbatch scripts/29_run_process_pangenome.sh
-                        takes R file /scripts/29_process_pangenome.RCopy copied from the $COURSEDIR/scripts/
-                        Configuration Settings: defined paths wd <- "/data/users/apiatkowska/genome_annotation_course/output/   
-                                                                     genespace/GENESPACE"
-                                                define focal genome identifier (focal_genome <- "PA_1")
+                        takes R file /scripts/29_process_pangenome.RCopy copied from:
+                        $COURSEDIR/scripts/
+                        Configuration Settings: 
+                                defined paths: 
+                                wd <- "/data/users/apiatkowska/genome_annotation_course/output/genespace/GENESPACE"
+                                define PA_1 identifier:
+                                focal_genome <- "PA_1"
 
-30. Run riparian plots
+30. Syntheny Maps: Run riparian plots
 
-        Input:
+        Input:  TAIR10 and PA_1 accession genomes
 
-        Does:
+        Does:   Generate comparative synteny riparian plots 
+                between the reference genome (TAIR10) and your accession (PA_1).
 
-        Output: 
+        Output: Riparian syntheny plot PA_1 vs TAIR10 pdf
 
-        Run:
+        Run:    sbatch scripts/30_run_riparian_plots.sh
+                        takes R file scripts/30_riparian_plots.R
+
+        Action: Improve graph readibility by streaching it horizontally 
+                and making the fond size smaller
+                Identify scaffolds to be flipped (see below point 31. input)
         
-31. Run riparian plots with flipping scaffolds
+31. Syntheny Maps. Improve scaffold order and display orientation
+        
+        Input:  scaffolds to be flipped:  
+                c("contig_110", "contig_107", "contig_126", "contig_164", "contig_166", "contig_167", "contig_48", "contig_105", "contig_106", "contig_127", "contig_186")
+                reference genome: TAIR10
+                your accession: PA_1
+                other accessions: Etna_2, Altai_5, Are_6
 
-        Input:
+        Does:   Runs riparian plots with flipping scaffolds.
+                Generate comparative synteny riparian plots between:
+                reference genome (TAIR10) and your accession (PA_1)
+                as well as 
 
-        Does:
+        Output: Riparian syntheny plot PA_1 vs TAIR10 pdf
 
-        Output: 
-
-        Run:
+        Run:    sbatch scripts/31_run_riparian_plots_oriented.sh
+                        takes R file scripts/31_riparian_plots_oriented.R
         
