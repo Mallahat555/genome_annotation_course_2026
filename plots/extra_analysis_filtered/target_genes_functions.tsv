@@ -1,0 +1,44 @@
+pgID	PA_Gene_ID	Flag	Function
+22140	PA0027994	PASS	Similar to AOP2: 2-oxoglutarate-dependent dioxygenase AOP2 (Arabidopsis thaliana)
+22140	PA0028127	PASS	Similar to AOP2: 2-oxoglutarate-dependent dioxygenase AOP2 (Arabidopsis thaliana)
+9010	PA0021326	PASS	Similar to MLP329: MLP-like protein 329 (Arabidopsis thaliana)
+9010	PA0023694	PASS	Similar to MLP328: MLP-like protein 328 (Arabidopsis thaliana)
+9104	PA0023749	PASS	Similar to GAD3: Glutamate decarboxylase 3 (Arabidopsis thaliana)
+9104	PA0021270	PASS	Similar to GAD3: Glutamate decarboxylase 3 (Arabidopsis thaliana)
+9287	PA0023865	PASS	Similar to PHO1-H5: Phosphate transporter PHO1 homolog 5 (Arabidopsis thaliana)
+9287	PA0021154	PASS	Similar to PHO1-H5: Phosphate transporter PHO1 homolog 5 (Arabidopsis thaliana)
+9609	PA0024055	PASS	Similar to ATJ49: Chaperone protein dnaJ 49 (Arabidopsis thaliana)
+9609	PA0020964	PASS	Similar to ATJ49: Chaperone protein dnaJ 49 (Arabidopsis thaliana)
+21947	PA0028815	PASS	Similar to GPAT3: Probable glycerol-3-phosphate acyltransferase 3 (Arabidopsis thaliana)
+21947	PA0028868	PASS	Similar to GPAT3: Probable glycerol-3-phosphate acyltransferase 3 (Arabidopsis thaliana)
+21947	PA0027870	PASS	Similar to GPAT3: Probable glycerol-3-phosphate acyltransferase 3 (Arabidopsis thaliana)
+21947	PA0028005	PASS	Similar to GPAT3: Probable glycerol-3-phosphate acyltransferase 3 (Arabidopsis thaliana)
+21947	PA0029016	NSOrtho	Similar to GPAT3: Probable glycerol-3-phosphate acyltransferase 3 (Arabidopsis thaliana)
+30592	PA0024856	PASS	Similar to CDR1: Aspartic proteinase CDR1 (Arabidopsis thaliana)
+30592	PA0024786	PASS	Similar to CDR1: Aspartic proteinase CDR1 (Arabidopsis thaliana)
+892	PA0000469	PASS	Similar to At1g06100: Delta-9 desaturase-like 2 protein (Arabidopsis thaliana)
+1345	PA0000867	PASS	Protein of unknown function
+1345	PA0012774	NSOrtho	Protein of unknown function
+1345	PA0003927	NSOrtho	Protein of unknown function
+4005	PA0003165	PASS	Similar to SBT3.4: Subtilisin-like protease SBT3.4 (Arabidopsis thaliana)
+9069	PA0023727	PASS	Similar to At2g01810: PHD finger protein At2g01810 (Arabidopsis thaliana)
+9069	PA0021293	PASS	Similar to At2g01810: PHD finger protein At2g01810 (Arabidopsis thaliana)
+9182	PA0023801	PASS	Similar to CAND1: Cullin-associated NEDD8-dissociated protein 1 (Arabidopsis thaliana)
+9182	PA0021214	PASS	Similar to CAND1: Cullin-associated NEDD8-dissociated protein 1 (Arabidopsis thaliana)
+9196	PA0023829	PASS	Similar to At2g02890: Putative F-box protein At2g02890 (Arabidopsis thaliana)
+9196	PA0021206	PASS	Similar to At2g02890: Putative F-box protein At2g02890 (Arabidopsis thaliana)
+9331	PA0021122	PASS	Similar to FBX7: F-box only protein 7 (Arabidopsis thaliana)
+9331	PA0023896	PASS	Similar to FBX7: F-box only protein 7 (Arabidopsis thaliana)
+9383	PA0023924	PASS	Similar to COR15B: Protein COLD-REGULATED 15B%2C chloroplastic (Arabidopsis thaliana)
+9383	PA0021093	PASS	Similar to COR15A: Protein COLD-REGULATED 15A%2C chloroplastic (Arabidopsis thaliana)
+9715	PA0020918	PASS	Protein of unknown function
+9715	PA0024107	PASS	Similar to PHL3: Protein PHR1-LIKE 3 (Arabidopsis thaliana)
+11697	PA0003968	PASS	Similar to SCPL11: Serine carboxypeptidase-like 11 (Arabidopsis thaliana)
+12635	PA0028972	PASS	Similar to MYOB4: Probable myosin-binding protein 4 (Arabidopsis thaliana)
+12635	PA0004786	PASS	Similar to MYOB4: Probable myosin-binding protein 4 (Arabidopsis thaliana)
+21717	PA0027762	PASS	Similar to At4g00610: Probable transcription factor At4g00610 (Arabidopsis thaliana)
+21717	PA0027583	PASS	Similar to At4g00610: Probable transcription factor At4g00610 (Arabidopsis thaliana)
+21945	PA0028814	PASS	Protein of unknown function
+21945	PA0028866	PASS	Protein of unknown function
+21945	PA0028003	PASS	Protein of unknown function
+21945	PA0029014	NSOrtho	Protein of unknown function

@@ -1,0 +1,112 @@
+pgID	PA_Gene_ID	Flag	Function
+29585	PA0016203	PASS	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027116	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027118	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027129	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027132	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027134	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027137	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027494	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027497	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027499	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027502	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027504	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027505	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+29585	PA0027507	NSOrtho	Similar to TAD3: tRNA-specific adenosine deaminase TAD3 (Arabidopsis thaliana)
+30657	PA0028180	NSOrtho	Similar to PHE1: MADS-box transcription factor PHERES 1 (Arabidopsis thaliana)
+30657	PA0028181	NSOrtho	Similar to PHE1: MADS-box transcription factor PHERES 1 (Arabidopsis thaliana)
+30657	PA0028182	NSOrtho	Similar to PHE1: MADS-box transcription factor PHERES 1 (Arabidopsis thaliana)
+30657	PA0028235	NSOrtho	Similar to PHE1: MADS-box transcription factor PHERES 1 (Arabidopsis thaliana)
+30657	PA0028236	NSOrtho	Similar to PHE2: MADS-box transcription factor PHERES 2 (Arabidopsis thaliana)
+30657	PA0028237	NSOrtho	Similar to PHE1: MADS-box transcription factor PHERES 1 (Arabidopsis thaliana)
+30657	PA0028238	NSOrtho	Similar to PHE2: MADS-box transcription factor PHERES 2 (Arabidopsis thaliana)
+30657	PA0028239	NSOrtho	Similar to PHE2: MADS-box transcription factor PHERES 2 (Arabidopsis thaliana)
+30657	PA0028240	NSOrtho	Similar to PHE2: MADS-box transcription factor PHERES 2 (Arabidopsis thaliana)
+3343	PA0009684	NSOrtho	Similar to At2g14290: F-box protein At2g14290 (Arabidopsis thaliana)
+3343	PA0009690	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+3343	PA0002620	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+3343	PA0002626	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+3343	PA0002631	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+3343	PA0002637	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+3343	PA0002652	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+3351	PA0009684	NSOrtho	Similar to At2g14290: F-box protein At2g14290 (Arabidopsis thaliana)
+3351	PA0009690	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+3351	PA0002620	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+3351	PA0002626	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+3351	PA0002631	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+3351	PA0002637	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+3351	PA0002652	NSOrtho	Similar to At5g25290: F-box protein At5g25290 (Arabidopsis thaliana)
+1035	PA0000603	PASS	Similar to AIP1: Protein phosphatase 2C 3 (Arabidopsis thaliana)
+11632	PA0023064	NSOrtho	Protein of unknown function
+11632	PA0019403	NSOrtho	Protein of unknown function
+11632	PA0018843	NSOrtho	Protein of unknown function
+11632	PA0016859	NSOrtho	Protein of unknown function
+11632	PA0003908	NSOrtho	Protein of unknown function
+11632	PA0027206	NSOrtho	Protein of unknown function
+11632	PA0026274	NSOrtho	Protein of unknown function
+23253	PA0007202	NSOrtho	Protein of unknown function
+23253	PA0023116	NSOrtho	Protein of unknown function
+23253	PA0008337	NSOrtho	Protein of unknown function
+23253	PA0002627	NSOrtho	Protein of unknown function
+23253	PA0002643	NSOrtho	Protein of unknown function
+23253	PA0009172	NSOrtho	Protein of unknown function
+30209	PA0025966	PASS	Protein of unknown function
+30209	PA0027208	PASS	Protein of unknown function
+30209	PA0006646	NSOrtho	Protein of unknown function
+30209	PA0006659	NSOrtho	Protein of unknown function
+31318	PA0026389	NSOrtho	Similar to EXPA24: Expansin-A24 (Arabidopsis thaliana)
+31318	PA0026687	NSOrtho	Similar to EXPA24: Expansin-A24 (Arabidopsis thaliana)
+31318	PA0026689	NSOrtho	Similar to EXPA23: Expansin-A23 (Arabidopsis thaliana)
+31318	PA0026391	NSOrtho	Similar to EXPA23: Expansin-A23 (Arabidopsis thaliana)
+31318	PA0026691	NSOrtho	Similar to EXPA23: Expansin-A23 (Arabidopsis thaliana)
+31318	PA0026693	NSOrtho	Similar to EXPA23: Expansin-A23 (Arabidopsis thaliana)
+1345	PA0000867	PASS	Protein of unknown function
+1345	PA0012774	NSOrtho	Protein of unknown function
+1345	PA0003927	NSOrtho	Protein of unknown function
+3817	PA0007202	NSOrtho	Protein of unknown function
+3817	PA0008337	NSOrtho	Protein of unknown function
+3817	PA0002627	NSOrtho	Protein of unknown function
+3817	PA0002643	NSOrtho	Protein of unknown function
+3817	PA0009172	NSOrtho	Protein of unknown function
+7493	PA0007202	NSOrtho	Protein of unknown function
+7493	PA0008337	NSOrtho	Protein of unknown function
+7493	PA0002627	NSOrtho	Protein of unknown function
+7493	PA0002643	NSOrtho	Protein of unknown function
+7493	PA0009172	NSOrtho	Protein of unknown function
+9187	PA0023805	NSOrtho	Protein of unknown function
+9187	PA0023806	NSOrtho	Protein of unknown function
+9187	PA0023807	NSOrtho	Protein of unknown function
+9187	PA0021207	NSOrtho	Protein of unknown function
+9187	PA0021209	NSOrtho	Protein of unknown function
+9188	PA0023805	NSOrtho	Protein of unknown function
+9188	PA0023806	NSOrtho	Protein of unknown function
+9188	PA0023807	NSOrtho	Protein of unknown function
+9188	PA0021207	NSOrtho	Protein of unknown function
+9188	PA0021209	NSOrtho	Protein of unknown function
+9191	PA0023806	PASS	Protein of unknown function
+9191	PA0021207	PASS	Protein of unknown function
+9192	PA0023805	NSOrtho	Protein of unknown function
+9192	PA0023806	NSOrtho	Protein of unknown function
+9192	PA0023807	NSOrtho	Protein of unknown function
+9192	PA0021207	NSOrtho	Protein of unknown function
+9192	PA0021209	NSOrtho	Protein of unknown function
+9297	PA0023845	NSOrtho	Similar to RBA1: Disease resistance protein RBA1 (Arabidopsis thaliana)
+9297	PA0023846	NSOrtho	Similar to RBA1: Disease resistance protein RBA1 (Arabidopsis thaliana)
+9297	PA0023847	NSOrtho	Similar to RBA1: Disease resistance protein RBA1 (Arabidopsis thaliana)
+9297	PA0023871	NSOrtho	Similar to RBA1: Disease resistance protein RBA1 (Arabidopsis thaliana)
+9297	PA0021148	NSOrtho	Similar to RBA1: Disease resistance protein RBA1 (Arabidopsis thaliana)
+9439	PA0023957	NSOrtho	Similar to DTX5: Protein DETOXIFICATION 5 (Arabidopsis thaliana)
+9439	PA0023959	NSOrtho	Similar to DTX6: Protein DETOXIFICATION 6 (Arabidopsis thaliana)
+9439	PA0021060	NSOrtho	Similar to DTX6: Protein DETOXIFICATION 6 (Arabidopsis thaliana)
+9439	PA0021062	NSOrtho	Similar to DTX5: Protein DETOXIFICATION 5 (Arabidopsis thaliana)
+9439	PA0021063	NSOrtho	Similar to DTX5: Protein DETOXIFICATION 5 (Arabidopsis thaliana)
+21947	PA0028815	PASS	Similar to GPAT3: Probable glycerol-3-phosphate acyltransferase 3 (Arabidopsis thaliana)
+21947	PA0028868	PASS	Similar to GPAT3: Probable glycerol-3-phosphate acyltransferase 3 (Arabidopsis thaliana)
+21947	PA0027870	PASS	Similar to GPAT3: Probable glycerol-3-phosphate acyltransferase 3 (Arabidopsis thaliana)
+21947	PA0028005	PASS	Similar to GPAT3: Probable glycerol-3-phosphate acyltransferase 3 (Arabidopsis thaliana)
+21947	PA0029016	NSOrtho	Similar to GPAT3: Probable glycerol-3-phosphate acyltransferase 3 (Arabidopsis thaliana)
+21965	PA0028276	NSOrtho	Similar to STP7: Sugar transport protein 7 (Arabidopsis thaliana)
+21965	PA0020871	NSOrtho	Similar to STP7: Sugar transport protein 7 (Arabidopsis thaliana)
+21965	PA0020872	NSOrtho	Similar to STP7: Sugar transport protein 7 (Arabidopsis thaliana)
+21965	PA0027882	NSOrtho	Similar to STP7: Sugar transport protein 7 (Arabidopsis thaliana)
+21965	PA0028017	NSOrtho	Similar to STP7: Sugar transport protein 7 (Arabidopsis thaliana)
